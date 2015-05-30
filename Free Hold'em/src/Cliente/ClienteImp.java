@@ -93,7 +93,7 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
         this.nombre=nombre;
         this.pass=pass;
          
-        if (servidor.AccesoJugador(this)){
+        if (servidor.Acceder(nombre,pass)){
 						System.out.println("Acceso");
                                                 return true;
 					}
@@ -107,7 +107,7 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
     public void EnviarListo(String nombre) {
             
             try {
-                servidor.enviarMensaje(nombre);
+                servidor.iniciarPartida(nombre);
             } catch (RemoteException ex) {
                 Logger.getLogger(ClienteImp.class.getName()).log(Level.SEVERE, null, ex);
             }
