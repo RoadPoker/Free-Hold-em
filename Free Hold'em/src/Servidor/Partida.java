@@ -6,12 +6,12 @@ import java.util.ArrayList;
 
 import Cliente.ClienteInterface;
 
-public class ServidorImp extends UnicastRemoteObject implements ServidorInterface{
+public class Partida extends UnicastRemoteObject implements ServidorInterface{
 	private static final long serialVersionUID = 1L;
 	private ArrayList<ClienteInterface> clientes;
         private ArrayList<Jugador> jugadores= new ArrayList<Jugador>();
         String listos=" \n";
-	protected ServidorImp() throws RemoteException {
+	protected Partida() throws RemoteException {
 		clientes= new ArrayList<ClienteInterface>();
 	}
 	public synchronized void registarCliente(ClienteInterface cliente)

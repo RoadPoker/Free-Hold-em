@@ -5,7 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Servidor.ServidorImp;
+import Servidor.Partida;
 import Servidor.ServidorInterface;
 import java.util.logging.Level;
 import java.util.logging.Logger;

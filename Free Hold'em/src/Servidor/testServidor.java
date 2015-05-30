@@ -13,7 +13,7 @@ public class testServidor {
                 System.out.println("Digite ip de Servidor");
                 Scanner scanner= new Scanner(System.in);
                 String input =scanner.nextLine();
-                Naming.rebind("rmi://"+input+":1099/Servidor", new ServidorImp());
+                Naming.rebind("rmi://"+input+":1099/Servidor", new Partida());
                 System.out.println("Servidor iniciado");
 	}
 
