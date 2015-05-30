@@ -16,8 +16,9 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface{
 	}
 	
         
-        public synchronized boolean Acceder(String usuario,String pass)throws RemoteException {
-            return gestion.autenticarJugador(usuario, pass);
+        public synchronized Jugador Acceder(String usuario,String pass)throws RemoteException {
+            return null;
+                  //  gestion.autenticarJugador(usuario, pass);
 }
 
           public boolean agregarJugador(String usuario, String pass) throws RemoteException {

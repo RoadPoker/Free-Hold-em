@@ -18,7 +18,7 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
 	String nombre,pass;
 	ServidorInterface servidor;
         JTextArea jTextArea1;
-
+        Servidor.Jugador usuario;
 
 	protected ClienteImp(ServidorInterface servido) throws RemoteException {
 		super();
@@ -41,29 +41,6 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
 		String mensaje;
 		while(true){
 			mensaje=scanner.nextLine();
-			try {
-				if(mensaje.equalsIgnoreCase("1")){
-					System.out.println("Se va a registar");
-					System.out.println("Digite su nombre de usuario");
-					nombre=scanner.nextLine();
-					System.out.println("Digite su contrasena");
-					pass=scanner.nextLine();
-					if (servidor.nuevoJugador(this)){
-						System.out.println("Registro correcto");
-					}
-					else{
-						System.out.println("Error!!");
-					}
-					
-				}
-				else{
-					servidor.enviarMensaje(nombre+" "+mensaje);
-				}
-				
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 	}
 
@@ -75,7 +52,7 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
     public boolean RegistroJugador(String nombre,String pass) throws RemoteException {
             this.nombre=nombre;
             this.pass=pass;
-            if (servidor.nuevoJugador(this)){
+            if (servidor.agregarJugador(nombre,pass)){
 						System.out.println("Registro correcto");
                                                 return true;
 					}
@@ -92,22 +69,14 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
     public boolean AccesoJugador(String nombre,String pass) throws RemoteException {
         this.nombre=nombre;
         this.pass=pass;
-         
-        if (servidor.Acceder(nombre,pass)){
-						System.out.println("Acceso");
-                                                return true;
-					}
-					else{
-						System.out.println("Error acceso");
-					}
-        
+        usuario=servidor.Acceder(nombre, pass);
         return false;
     }
 
-    public void EnviarListo(String nombre) {
+    public void EnviarListo() {
             
             try {
-                servidor.iniciarPartida(nombre);
+                servidor.iniciarPartida(usuario);
             } catch (RemoteException ex) {
                 Logger.getLogger(ClienteImp.class.getName()).log(Level.SEVERE, null, ex);
             }

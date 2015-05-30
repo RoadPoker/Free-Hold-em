@@ -13,6 +13,7 @@ package Servidor;
 public class Jugador {
     String nombre,password;
     int dinero;
+    Mano mano;
 
     public Jugador(String nombre, String pass) {
         this.nombre = nombre;
@@ -47,6 +48,14 @@ public class Jugador {
 
     public void setDinero(int dinero) {
         this.dinero = dinero;
+    }
+
+    public Mano getMano() {
+        return mano;
+    }
+
+    public void setMano(Mano mano) {
+        this.mano = mano;
     }
 
     

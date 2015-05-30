@@ -44,4 +44,48 @@ public class GestionPartida {
 		return true;
 	}
     
+    public void agregarJugadores(ArrayList<Jugador> jugadores){
+        
+    }
+    public void cambiarDineroJugadores(){
+        
+    }
+public void definirDealer(ArrayList<Jugador> jugadores){
+
+}
+
+public Jugador determinarGanador(){
+        return null;
+    
+}
+
+public void enviarJugada(long cantidad, String tipo){
+    
+}
+public void finPartida(){
+    
+}
+public void notificarSalida(Jugador jugador){
+    
+}
+
+public void pedirCartasIniciales(Jugador jugador){
+    
+}
+
+public void pedirUbicacionEnMesa(Jugador jugador){
+    
+}
+public void repartirCartas(ArrayList<Jugador> jugadores){
+    
+}
+public void ubicarJugadoresEnMesa(ArrayList<Jugador> jugadores){
+    
+}
+
+public boolean verificarJugador(String nombre,String pass){
+        return false;
+    
+}
+
 }

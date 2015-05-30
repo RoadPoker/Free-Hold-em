@@ -10,6 +10,6 @@ public interface ClienteInterface extends Remote{
         String getPass() throws RemoteException; 
         boolean RegistroJugador(String nombre,String pass) throws RemoteException; 
         public boolean AccesoJugador(String nombre,String pass) throws RemoteException;
-        void EnviarListo(String nombre) throws RemoteException;
+        void EnviarListo() throws RemoteException;
         void setArea(JTextArea jTextArea1) throws RemoteException;
 }

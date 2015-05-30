@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public interface ServidorInterface extends Remote{
 	
 	boolean agregarJugador(String usuario,String pass) throws RemoteException;
-        boolean Acceder(String usuario,String pass)throws RemoteException;
+        Jugador Acceder(String usuario,String pass)throws RemoteException;
         ArrayList<Jugador> cargarJugadores(String usuario,String pass)throws RemoteException;
         boolean determinarInicioDePartida()throws RemoteException;
         void enviarJugada(long cantidad, String tipoApuesta) throws RemoteException;;
