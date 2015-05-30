@@ -11,38 +11,44 @@ package Servidor;
  * @author Diego
  */
 public class Jugador {
-    String nombre,pass;
-    int fichas;
+    String nombre,password;
+    int dinero;
 
     public Jugador(String nombre, String pass) {
         this.nombre = nombre;
-        this.pass = pass;
-        fichas=500;
+        this.password = pass;
+        dinero=500;
     }
 
     public String getName() {
         return nombre;
     }
 
- public String getPass() {
-        return pass;
-    }
-    public int getFichas() {
-        return fichas;
-    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFichas(int fichas) {
-        this.fichas = fichas;
+    public String getPassword() {
+        return password;
     }
-    
+
+    public int getDinero() {
+        return dinero;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
+    }
+
     
     
     

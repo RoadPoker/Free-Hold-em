@@ -8,48 +8,65 @@ import Cliente.ClienteInterface;
 
 public class Partida extends UnicastRemoteObject implements ServidorInterface{
 	private static final long serialVersionUID = 1L;
-	private ArrayList<ClienteInterface> clientes;
-        private ArrayList<Jugador> jugadores= new ArrayList<Jugador>();
+        GestionPartida gestion= new GestionPartida();
+	
         String listos=" \n";
 	protected Partida() throws RemoteException {
-		clientes= new ArrayList<ClienteInterface>();
-	}
-	public synchronized void registarCliente(ClienteInterface cliente)
-			throws RemoteException {
-		clientes.add(cliente);
 		
 	}
-	public synchronized void enviarMensaje(String mensaje) throws RemoteException {
-		listos+=mensaje+"\n";
-                int i=0;
-		while(i<clientes.size()){
-			clientes.get(i++).retriveMensaje(listos);
-		}
-		
-	}
-	public synchronized boolean nuevoJugador(ClienteInterface cliente)throws RemoteException {
-            System.out.println("SERVIDOR: "+cliente.getName()+" se quiere registar");
-            
-            for (int i=0;i<jugadores.size();i++){
-			if (jugadores.get(i).getName().equalsIgnoreCase(cliente.getName())){
-                            System.out.println("SERVIDOR: Jugador ya existe: "+jugadores.get(i).getName());
-                            return false;
-			}
-		}
-		clientes.add(cliente);
-                jugadores.add(new Jugador(cliente.getName(),cliente.getPass()));
-                System.out.println("SERVIDOR: "+cliente.getName()+" se registro");
-		return true;
-	}
+	
         
-        public synchronized boolean AccesoJugador(ClienteInterface cliente)throws RemoteException {
-            for (int i=0;i<jugadores.size();i++){
-			if (jugadores.get(i).getName().equalsIgnoreCase(cliente.getName()) && jugadores.get(i).getPass().equalsIgnoreCase(cliente.getPass()) ){
-                            System.out.println("SERVIDOR: Jugador Accede: "+jugadores.get(i).getName());
-                            return true;
-			}
-		}
-            return false;
+        public synchronized boolean Acceder(String usuario,String pass)throws RemoteException {
+            return gestion.autenticarJugador(usuario, pass);
 }
+
+          public boolean agregarJugador(String usuario, String pass) throws RemoteException {
+             return gestion.AgergarJugador(usuario, pass);
+         }
+
+    @Override
+    public ArrayList<Jugador> cargarJugadores(String usuario, String pass) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean determinarInicioDePartida() throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void enviarJugada(long cantidad, String tipoApuesta) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean iniciarPartida(Jugador jugador) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void notificarTurnoJugador(Jugador jugador) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Mano pedirCartasIniciales(Jugador jugador) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int pedirUbicacionEnMesa(Jugador jugador) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void salirJugador(Jugador jugador) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void salvarJugadores(ArrayList<Jugador> jugadores) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
 }
