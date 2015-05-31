@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Cliente;
+package Jugador;
 
 import Servidor.*;
 import Servidor.ServidorInterface;
@@ -19,8 +19,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
- *
- * @author Diego
+ *Clase vista, encargada de mostrar el "Lobby" del juego, habilita la conexión con el servidor,
+ * recibe los datos de ingreso de usuario o de acceso, luego despliega la mesa de la partida.
+ * @author RoadPoker
  */
 public class Lobby extends javax.swing.JFrame {
     
@@ -310,7 +311,7 @@ public class Lobby extends javax.swing.JFrame {
     /**
      * método diseñado para instanciar al inicio los objetos controladores.
      */
-    public void incio()
+    public void inicio()
     {
         try {
             controlJuego= new controladorJuego();

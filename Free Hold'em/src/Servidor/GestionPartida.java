@@ -1,6 +1,6 @@
 package Servidor;
 
-import Cliente.ClienteInterface;
+import Jugador.ClienteInterface;
 import java.lang.reflect.Array;
 import java.rmi.RemoteException;
 import java.util.ArrayList;

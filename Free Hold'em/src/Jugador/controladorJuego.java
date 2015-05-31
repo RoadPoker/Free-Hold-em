@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cliente;
+package Jugador;
 
 import Servidor.Jugador;
 import Servidor.Mesa;
@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
 /**
  *Clase controladora del juego, representa el controlador principal encargado de conectar,
  * modificar y recibir las ordenes del usuario
- * @author felipe
+ * @author Road Poker
  */
 public class controladorJuego {
     private ClienteImp conexion;

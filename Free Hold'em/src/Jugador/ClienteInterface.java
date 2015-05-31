@@ -1,4 +1,4 @@
-package Cliente;
+package Jugador;
 
 import Servidor.Carta;
 import Servidor.Jugador;
@@ -6,7 +6,11 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import javax.swing.JTextArea;
-
+/**
+ * Interface para comunicar con RMI del servidor
+ * 
+ * @author RoadPoker
+ */
 public interface ClienteInterface extends Remote{
 	public  void retriveMensaje(String mensaje) throws RemoteException;
 	public String getName() throws RemoteException;

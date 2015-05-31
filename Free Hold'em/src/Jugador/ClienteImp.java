@@ -1,4 +1,4 @@
-package Cliente;
+package Jugador;
 
 import Servidor.Carta;
 import Servidor.Jugador;
@@ -14,7 +14,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
-
+/**
+ * Clase que implementa la interface clienteinterface, esta clase es la responsable de 
+ * ser el controlador encargardo de interactuar con el servidor mediante RMI.
+ * @author Road Poker
+ */
 public class ClienteImp extends UnicastRemoteObject implements ClienteInterface, Runnable {
 	
 	private static final long serialVersionUID = 1L;

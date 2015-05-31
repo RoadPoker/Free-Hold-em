@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cliente;
+package Jugador;
 
 /**
- *
- * @author felipe
+ *Clase controladora, encargada de procesar las ordenes de apuesta o jugada
+ * de cada jugador, esta clase es la responsable de notificar al modelo y a 
+ * clienteImp para notificar la orden del jugador en el servidor.
+ * @author RoadPoker
+ * 
  */
 public class ControladorApuesta {
 

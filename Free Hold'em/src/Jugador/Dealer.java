@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cliente;
+package Jugador;
 import Servidor.*;
 import java.util.List;
 
 /**
- *
- * @author felipe
+ *Clase encargada de administrar el modelo en el jugador, su respectiva implementación
+ * se encarga de actualizar la mesa al recibir información de los controladores.
+ * @author Road Poker
  */
 public  class Dealer {
     private Pot potJuego;

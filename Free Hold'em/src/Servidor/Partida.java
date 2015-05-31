@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import Cliente.ClienteInterface;
+import Jugador.ClienteInterface;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte0.runnable;

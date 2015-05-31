@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cliente;
+package Jugador;
 
 import Servidor.Carta;
 import Servidor.Jugador;
@@ -18,8 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author felipe
+ *Clase que implementa la vista de la mesa, muestra el estado del juego despues y durante cada turno hasta
+ * culminar el juego.
+ * @author Road Poker
  */
 public class VistaMesa extends javax.swing.JFrame {
     private controladorJuego controljuego;
@@ -742,7 +743,7 @@ public VistaMesa(controladorJuego cont) {
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, -1));
 
-        LabMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/Imagenes/Mesa.jpg"))); // NOI18N
+        LabMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Jugador/Imagenes/Mesa.jpg"))); // NOI18N
         LabMesa.setText("jLabel1");
         getContentPane().add(LabMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 1297, 536));
 
