@@ -14,8 +14,13 @@ import java.util.Random;
 public class GestionPartida {
     ArrayList<Jugador> jugadores= new ArrayList<>();
     ArrayList<Jugador> jugadoresListos= new ArrayList<>();
+    ArrayList<Carta> cartasComunales= new ArrayList<>();
     int dealer=0;
     private boolean cartasRepartidas=false;
+
+    public GestionPartida() {
+        crearCartasComunales();
+    }
     
     /**
     * Este metodo se encarga de verificar que un jugador este accediendo con el
@@ -40,7 +45,7 @@ public class GestionPartida {
     * Este metodo se encarga de agregar un nuevo jugador solo en caso de que ningun otro
     * anteriormente haya utilizado el mismo nombre de usuario
     * 
-    *  @param  usuario  el nombre de usuario digitado por el ususario
+    *  @param  usuario  el nombre de usuario digitado por el usuario
     *  @param  pass     clave de usuario digitado por el usuario
     *  @return      si es agregado el jugador o no
     */
@@ -240,6 +245,10 @@ public void guardarJugadores(ArrayList<Jugador> jugadores){
         return dealer;
     }
 
+    public ArrayList<Carta> getCartasComunales() {
+        return cartasComunales;
+    }
+
     public void setJugadores(ArrayList<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
@@ -252,7 +261,16 @@ public void guardarJugadores(ArrayList<Jugador> jugadores){
         this.dealer = dealer;
     }
 
-
+    public void crearCartasComunales()
+    {
+        for(int i=0; i<5;i++)
+        {
+            Carta carta=new Carta();
+            carta=cartaAleatoria();
+            cartasComunales.add(carta);
+                 
+        }
+    }
 
 
 

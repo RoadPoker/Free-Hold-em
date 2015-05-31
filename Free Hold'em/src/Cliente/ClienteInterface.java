@@ -1,5 +1,6 @@
 package Cliente;
 
+import Servidor.Carta;
 import Servidor.Jugador;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -15,4 +16,5 @@ public interface ClienteInterface extends Remote{
         public boolean EnviarListo() throws RemoteException;
         public void setArea(JTextArea jTextArea1) throws RemoteException;
         public ArrayList <Jugador> pedirJugadoresListos() throws RemoteException;
+        public ArrayList <Carta> pedirCartasComunales() throws RemoteException;
 }

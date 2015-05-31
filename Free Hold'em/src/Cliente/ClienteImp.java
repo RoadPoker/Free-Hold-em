@@ -1,5 +1,6 @@
 package Cliente;
 
+import Servidor.Carta;
 import Servidor.Jugador;
 import Servidor.Mano;
 import java.rmi.RemoteException;
@@ -180,6 +181,11 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
     public ArrayList<Jugador> pedirJugadoresListos() throws RemoteException
     {
         return servidor.PedirJugadoresListos();
+    }
+
+    @Override
+    public ArrayList<Carta> pedirCartasComunales() throws RemoteException {
+       return servidor.pedirCartasComunales();
     }
 
     

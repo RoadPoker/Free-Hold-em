@@ -5,6 +5,7 @@
  */
 package Cliente;
 
+import Servidor.Carta;
 import Servidor.Jugador;
 import java.awt.Image;
 import java.rmi.RemoteException;
@@ -121,10 +122,21 @@ public VistaMesa(controladorJuego cont) {
         LabPos3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         labDin3 = new javax.swing.JLabel();
-        LabMesa = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         monto = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        labCartC1 = new javax.swing.JLabel();
+        labCartC2 = new javax.swing.JLabel();
+        labCartC3 = new javax.swing.JLabel();
+        labCartC4 = new javax.swing.JLabel();
+        labCartC5 = new javax.swing.JLabel();
+        LabMesa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -584,33 +596,33 @@ public VistaMesa(controladorJuego cont) {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel19)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LabPos3))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel12)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(labCart5))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGap(32, 32, 32)
-                                    .addComponent(labNom3))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel17)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(labCart6)))
-                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(labCart5))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(labNom3))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(labCart6)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labDin3)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LabPos3))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labDin3)))))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -639,10 +651,6 @@ public VistaMesa(controladorJuego cont) {
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, 150, 130));
 
-        LabMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/Imagenes/Mesa.jpg"))); // NOI18N
-        LabMesa.setText("jLabel1");
-        getContentPane().add(LabMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 1297, 536));
-
         jLabel5.setText("Cantidad");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 630, -1, -1));
 
@@ -660,6 +668,79 @@ public VistaMesa(controladorJuego cont) {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 660, -1, -1));
+
+        jLabel30.setText("Carta 1");
+
+        jLabel31.setText("Carta 2");
+
+        jLabel32.setText("Carta 3");
+
+        jLabel33.setText("Carta 4");
+
+        jLabel34.setText("Carta 5");
+
+        labCartC1.setText("jLabel35");
+
+        labCartC2.setText("jLabel35");
+
+        labCartC3.setText("jLabel35");
+
+        labCartC4.setText("jLabel35");
+
+        labCartC5.setText("jLabel35");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30)
+                    .addComponent(labCartC1))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31)
+                    .addComponent(labCartC2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(labCartC3))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addComponent(labCartC4))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34)
+                    .addComponent(labCartC5))
+                .addGap(22, 22, 22))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labCartC1)
+                    .addComponent(labCartC2)
+                    .addComponent(labCartC3)
+                    .addComponent(labCartC4)
+                    .addComponent(labCartC5))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, -1));
+
+        LabMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/Imagenes/Mesa.jpg"))); // NOI18N
+        LabMesa.setText("jLabel1");
+        getContentPane().add(LabMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 1297, 536));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -769,6 +850,12 @@ public void iniciarDatos() throws RemoteException
 {
     ArrayList <Jugador> listJug=controljuego.getConexion().pedirJugadoresListos();
     int tam=listJug.size();
+    ArrayList <Carta> comunales= controljuego.getConexion().pedirCartasComunales();
+    labCartC1.setText(""+comunales.get(0).getColor().charAt(0)+comunales.get(0).getFigura().charAt(0)+comunales.get(0).getNumero());
+    labCartC2.setText(""+comunales.get(1).getColor().charAt(0)+comunales.get(1).getFigura().charAt(0)+comunales.get(1).getNumero());
+    labCartC3.setText(""+comunales.get(2).getColor().charAt(0)+comunales.get(2).getFigura().charAt(0)+comunales.get(2).getNumero());
+    labCartC4.setText(""+comunales.get(3).getColor().charAt(0)+comunales.get(3).getFigura().charAt(0)+comunales.get(3).getNumero());
+    labCartC5.setText(""+comunales.get(4).getColor().charAt(0)+comunales.get(4).getFigura().charAt(0)+comunales.get(4).getNumero());
     while(tam>0)
     {
         switch(tam)
@@ -863,6 +950,11 @@ public void iniciarDatos() throws RemoteException
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -875,6 +967,7 @@ public void iniciarDatos() throws RemoteException
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel labCart10;
     private javax.swing.JLabel labCart11;
@@ -886,6 +979,11 @@ public void iniciarDatos() throws RemoteException
     private javax.swing.JLabel labCart7;
     private javax.swing.JLabel labCart8;
     private javax.swing.JLabel labCart9;
+    private javax.swing.JLabel labCartC1;
+    private javax.swing.JLabel labCartC2;
+    private javax.swing.JLabel labCartC3;
+    private javax.swing.JLabel labCartC4;
+    private javax.swing.JLabel labCartC5;
     private javax.swing.JLabel labDin1;
     private javax.swing.JLabel labDin2;
     private javax.swing.JLabel labDin3;

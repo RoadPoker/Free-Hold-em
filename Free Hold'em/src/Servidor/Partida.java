@@ -237,4 +237,9 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface {
     {
         return jugadoresListos;
     }
+
+    @Override
+    public ArrayList<Carta> pedirCartasComunales() throws RemoteException {
+        return gestion.getCartasComunales();
+    }
 }

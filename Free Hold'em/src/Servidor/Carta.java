@@ -13,6 +13,11 @@ public class Carta implements Serializable {
     private String figura;
     private int numero;
     private boolean visible;
+
+    public Carta() {
+    }
+    
+    
     public Carta(String color, String figura, int numero, boolean visible) {
         this.color = color;
         this.figura = figura;
