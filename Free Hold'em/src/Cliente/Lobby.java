@@ -234,10 +234,19 @@ public class Lobby extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-            cliente.EnviarListo();
-            jButton4.setEnabled(false);
-            juego= new VistaMesa();
-            juego.setVisible(true);
+            
+            if(cliente.EnviarListo())
+            {
+                jButton4.setEnabled(false);
+                juego= new VistaMesa();
+                juego.setVisible(true);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Partida ya esta en curso", "Partida en curso", JOptionPane.ERROR_MESSAGE);
+            }
+             
+            
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

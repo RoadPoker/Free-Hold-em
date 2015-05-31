@@ -100,13 +100,23 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
 /**
  * EnviarListo: confirma el usuario para ingresar a su partida o iniciar una nueva.
  */
-    public void EnviarListo() {
+    public boolean EnviarListo() {
             
             try {
-                servidor.iniciarPartida(usuario);
+                if(servidor.iniciarPartida(usuario))
+                {
+                    System.out.println("Mi ubicación"+servidor.pedirUbicacionEnMesa(usuario));
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
             } catch (RemoteException ex) {
                 Logger.getLogger(ClienteImp.class.getName()).log(Level.SEVERE, null, ex);
             }
+            return false;
     }
 
     public void setArea(JTextArea jTextArea1) throws RemoteException {

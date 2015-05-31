@@ -21,8 +21,9 @@ public class VistaMesa extends javax.swing.JFrame {
      * Creates new form Mesa
      */
     public VistaMesa() {
-        func();
+        
         initComponents();
+        func();
     }
 
     /**

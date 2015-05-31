@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import Cliente.ClienteInterface;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte0.runnable;
 /**
  *  Esta clase se encarga de implementar los metodos descritos por la clase
  * ServidorInterface, con un conjunto de metodos que un jugador puede usar
@@ -14,18 +15,19 @@ import java.util.logging.Logger;
  * y los servicios que presta
  * @author Road Poker
  */
-public class Partida extends UnicastRemoteObject implements ServidorInterface{
+public class Partida extends UnicastRemoteObject implements ServidorInterface {
 	private static final long serialVersionUID = 1L;
         GestionPartida gestion= new GestionPartida();
         private ArrayList<Jugador> jugadoresListos=new ArrayList<Jugador>();
         ExpertoPersistencia persiste= new ExpertoPersistencia();
         boolean enUso=false;
+        private static int tiempo;
 	
     /**
     * Constructor
     * 
     */
-	protected Partida() throws RemoteException {
+	protected Partida()  throws RemoteException {
 		
 	}
 	
@@ -77,6 +79,9 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface{
     *  @return      si es posible iniciar partida o no
     */
     public boolean determinarInicioDePartida() throws RemoteException {
+        
+        
+        
         if (jugadoresListos.size()>=2){
             return true;
         }
@@ -103,8 +108,39 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface{
     *  @return      si es posible iniciar o no
     */
     public boolean iniciarPartida(Jugador jugador) throws RemoteException {
+        if(enUso)
+        {
+            return false;
+        }
        jugadoresListos.add(jugador);
-       return determinarInicioDePartida();
+        System.out.println("El usuario pide iniciar partida"+jugador.getNombre());
+        tiempo=10;
+        while(tiempo>0)
+        {
+           try {
+               Thread.sleep(1000);
+           } catch (InterruptedException ex) {
+               Logger.getLogger(Partida.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            tiempo --;
+        }
+        while(!determinarInicioDePartida())
+        {
+           try {
+               Thread.sleep(1000);
+           } catch (InterruptedException ex) {
+               Logger.getLogger(Partida.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        }
+        
+        gestion.setJugadoresListos(jugadoresListos);
+        if(tiempo<=0)
+        {
+            enUso=true;
+            gestion.repartirCartas();
+        }
+        return true;
+      
     }
 
     /**
@@ -188,4 +224,6 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface{
         }
         gestion.determinarGanador();
     }
+
+
 }
