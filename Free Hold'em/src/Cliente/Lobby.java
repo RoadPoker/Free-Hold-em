@@ -6,6 +6,7 @@
 
 package Cliente;
 
+import Servidor.*;
 import Servidor.ServidorInterface;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -26,6 +27,10 @@ public class Lobby extends javax.swing.JFrame {
     public static String URL;
     public static ServidorInterface servidor;
     public static ClienteImp cliente;
+    private static VistaMesa juego;
+    private static Servidor.Mesa modJuego;
+    private static controladorJuego controlJuego;
+    
     /**
      * Creates new form GUI
      */
@@ -231,6 +236,8 @@ public class Lobby extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
             cliente.EnviarListo();
             jButton4.setEnabled(false);
+            juego= new VistaMesa();
+            juego.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -289,7 +296,12 @@ public class Lobby extends javax.swing.JFrame {
             }
         });
     }
-
+    public void incio()
+    {
+        controlJuego= new controladorJuego();
+        modJuego=controlJuego.getMesaDealer();
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

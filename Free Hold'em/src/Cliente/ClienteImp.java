@@ -70,7 +70,7 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
         this.nombre=nombre;
         this.pass=pass;
         usuario=servidor.Acceder(nombre, pass);
-        return false;
+        return true;
     }
 
     public void EnviarListo() {

@@ -14,7 +14,7 @@ import java.util.List;
 public  class Dealer {
     private Pot potJuego;
     private Jugador jugador;
-    private VistaMesa mesajuego;
+    private Servidor.Mesa mesajuego;
     
     
 
@@ -28,7 +28,7 @@ public  class Dealer {
         return jugador;
     }
 
-    public Cliente.VistaMesa getMesajuego() {
+    public Servidor.Mesa getMesajuego() {
         return mesajuego;
     }
 
@@ -40,7 +40,7 @@ public  class Dealer {
         this.jugador = jugador;
     }
 
-    public void setMesajuego(Cliente.VistaMesa mesajuego) {
+    public void setMesajuego(Servidor.Mesa mesajuego) {
         this.mesajuego = mesajuego;
     }
 
