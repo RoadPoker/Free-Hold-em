@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Servidor;
 
@@ -17,14 +12,20 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
- *
- * @author Diego
+ *  Esta clase implementa los metodos de la clase Persistencia y es quien se encarga de guardar y cargar los datos ya salvados
+ * @author Road Poker
  */
 public class ExpertoPersistencia implements Persistencia{
 
-    @Override
+    /**
+    * Este metodo se encarga de cargar de un archivo dado en la carpeta
+    * archivos, donde se encuentra serializado una lista de jugadores la cual
+    * se regresara
+    *
+    *  @param  localizacion  nombre del archivo en la carpeta archivos
+    *  @return      lista de jugadores encontrado
+    */
     public ArrayList<Jugador> Cargarjugadores(String localizacion) {
         ArrayList<Jugador> jugadoresCargados= new ArrayList<>();
         try {
@@ -53,7 +54,14 @@ public class ExpertoPersistencia implements Persistencia{
         return jugadoresCargados;
     }
 
-    @Override
+    /**
+    * Este metodo se encarga de cargar de un archivo dado en la carpeta
+    * archivos, donde se encuentra serializado una lista de jugadores la cual
+    * se regresara
+    *
+    *  @param  jugadores  lista de jugadores los cuales se serializaran y se guat
+    *  @return      si se guardo correctamente o no
+    */
     public boolean SalvarJugadores(ArrayList<Jugador> jugadores) {
         Calendar calendario = new GregorianCalendar();
         int hora, minutos, segundos;

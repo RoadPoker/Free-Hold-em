@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Servidor;
 
 /**
- *
- * @author Diego
+ *  Esta clase representa una carta la cual tiene atributos como su figura, su color, su numero y su visibilidad.
+ *  Con los atributos de todas las cartas segun las reglas del juego se puede definir cual es el ganador
+ * @author Road Poker
  */
 public class Carta {
     
