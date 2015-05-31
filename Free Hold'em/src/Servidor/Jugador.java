@@ -21,9 +21,7 @@ public class Jugador {
         dinero=500;
     }
 
-    public String getName() {
-        return nombre;
-    }
+
 
 
     public void setNombre(String nombre) {

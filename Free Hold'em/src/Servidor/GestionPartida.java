@@ -7,8 +7,10 @@
 package Servidor;
 
 import Cliente.ClienteInterface;
+import java.lang.reflect.Array;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -16,16 +18,18 @@ import java.util.ArrayList;
  */
 public class GestionPartida {
     ArrayList<Jugador> jugadores= new ArrayList<>();
+    ArrayList<Jugador> jugadoresListos= new ArrayList<>();
     
     
-    public boolean autenticarJugador(String usuario, String pass){
+    
+    public Jugador autenticarJugador(String usuario, String pass){
         for (int i=0;i<jugadores.size();i++){
-			if (jugadores.get(i).getName().equalsIgnoreCase(usuario) && jugadores.get(i).getPassword().equalsIgnoreCase(pass) ){
-                            System.out.println("SERVIDOR: Jugador Accede: "+jugadores.get(i).getName());
-                            return true;
+			if (jugadores.get(i).getNombre().equalsIgnoreCase(usuario) && jugadores.get(i).getPassword().equalsIgnoreCase(pass) ){
+                            System.out.println("SERVIDOR: Jugador Accede: "+jugadores.get(i).getNombre());
+                            return jugadores.get(i);
 			}
 		}
-            return false;
+            return null;
     }
     
     
@@ -33,8 +37,8 @@ public class GestionPartida {
             System.out.println("SERVIDOR: "+nombre+" se quiere registar");
             
             for (int i=0;i<jugadores.size();i++){
-			if (jugadores.get(i).getName().equalsIgnoreCase(nombre)){
-                            System.out.println("SERVIDOR: Jugador ya existe: "+jugadores.get(i).getName());
+			if (jugadores.get(i).getNombre().equalsIgnoreCase(nombre)){
+                            System.out.println("SERVIDOR: Jugador ya existe: "+jugadores.get(i).getNombre());
                             return false;
 			}
 		}
@@ -45,7 +49,7 @@ public class GestionPartida {
 	}
     
     public void agregarJugadores(ArrayList<Jugador> jugadores){
-        
+        this.jugadores= jugadores;
     }
     public void cambiarDineroJugadores(){
         
@@ -63,29 +67,76 @@ public void enviarJugada(long cantidad, String tipo){
     
 }
 public void finPartida(){
-    
+    Jugador gana=determinarGanador();
 }
 public void notificarSalida(Jugador jugador){
-    
+    //Enviar a jugadoresListos que alguin salio
 }
 
-public void pedirCartasIniciales(Jugador jugador){
-    
+public Mano pedirCartasIniciales(Jugador jugador){
+    for (Jugador jugador1 : jugadores) {
+        if (jugador1.getNombre().equalsIgnoreCase(jugador.getNombre())){
+            return jugador1.getMano();
+        }
+    }
+    return null;
 }
 
-public void pedirUbicacionEnMesa(Jugador jugador){
-    
+public int pedirUbicacionEnMesa(Jugador jugador){
+    int i=1;
+    for (Jugador jug : jugadoresListos) {
+        if (jug.getNombre().equalsIgnoreCase(jugador.getNombre())){
+            return i; 
+        }
+        i++;
+        
+    }
+    return 0;
 }
 public void repartirCartas(ArrayList<Jugador> jugadores){
     
-}
-public void ubicarJugadoresEnMesa(ArrayList<Jugador> jugadores){
+    for (Jugador jugador : jugadores) {
+        Carta cartaUno=cartaAleatoria();
+        Carta cartaDos=cartaAleatoria();
+        ArrayList<Carta> mano=new ArrayList<>();
+        mano.add(cartaUno);
+        mano.add(cartaDos);
+        Mano nuevaMano= new Mano(mano);
+        jugador.setMano(nuevaMano);
+    }
     
 }
 
-public boolean verificarJugador(String nombre,String pass){
-        return false;
+public Carta cartaAleatoria(){
+    Random rand = new Random();
+    int x = rand.nextInt(4)+1;
+    String color="";
+    String figura="";
+    int numero;
+    if (x==1){
+        color="Rojo";
+        figura="Corazones";
+    }
+    if (x==2){
+        color="Rojo";
+        figura="Diamantes";
+    }
+    if (x==3){
+        color= "Negro";
+        figura="Trebol";
+        
+    }
+    if (x==4){
+        color="Negro";
+        figura="Picas";
+    }
+    x = rand.nextInt(13)+1;
     
+    return new Carta(color,figura,x);
 }
+public void ubicarJugadoresEnMesa(ArrayList<Jugador> jugadores){
+    //Se ubica dependiendo el orden
+}
+
 
 }

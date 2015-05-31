@@ -9,6 +9,7 @@ import Cliente.ClienteInterface;
 public class Partida extends UnicastRemoteObject implements ServidorInterface{
 	private static final long serialVersionUID = 1L;
         GestionPartida gestion= new GestionPartida();
+        private ArrayList<Jugador> jugadoresListos=new ArrayList<Jugador>();
 	
         String listos=" \n";
 	protected Partida() throws RemoteException {
@@ -17,8 +18,12 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface{
 	
         
         public synchronized Jugador Acceder(String usuario,String pass)throws RemoteException {
+         Jugador regreso=gestion.autenticarJugador(usuario, pass);
+            if (regreso!=null){
+                return regreso;
+            }
             return null;
-                  //  gestion.autenticarJugador(usuario, pass);
+                  
 }
 
           public boolean agregarJugador(String usuario, String pass) throws RemoteException {
@@ -32,7 +37,10 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface{
 
     @Override
     public boolean determinarInicioDePartida() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (jugadoresListos.size()>=2){
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -42,7 +50,8 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface{
 
     @Override
     public boolean iniciarPartida(Jugador jugador) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       jugadoresListos.add(jugador);
+       return determinarInicioDePartida();
     }
 
     @Override
