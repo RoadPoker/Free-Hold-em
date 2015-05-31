@@ -46,11 +46,11 @@ public class Mesa {
         this.apuestaRonda = apuestaRonda;
     }
 
-    public long getApuestaprevia() {
+    public int getApuestaprevia() {
         return apuestaprevia;
     }
 
-    public long getApuestaRonda() {
+    public int getApuestaRonda() {
         return apuestaRonda;
     }
 
