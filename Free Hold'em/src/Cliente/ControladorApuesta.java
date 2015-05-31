@@ -84,6 +84,9 @@ public class ControladorApuesta {
          * implementa el retirarse de la mesa.
          */
     }
+    /**
+     * Retirarse del juego.
+     */
     public void fold()
     {
         /*

@@ -31,6 +31,10 @@ public class VistaMesa extends javax.swing.JFrame {
         initComponents();
         func();
     }
+    /**
+     * constructor del JFRame VistaMesa, con el controlador actualizado del Lobby
+     * @param cont 
+     */
 public VistaMesa(controladorJuego cont) {
         
         initComponents();
@@ -846,6 +850,10 @@ public void func() throws RemoteException
    
    
 }
+/**
+ * Método que inicializa la mesa y los datos correspondiente a jugadores y cartas comunitarias.
+ * @throws RemoteException 
+ */
 public void iniciarDatos() throws RemoteException
 {
     ArrayList <Jugador> listJug=controljuego.getConexion().pedirJugadoresListos();

@@ -41,18 +41,31 @@ public class controladorJuego {
         this.conexion = conexion;
         this.contApuestas = contApuestas;
     }
-
+/**
+ * Recupera el dealer de la interfaz del jugador objetivo
+ * @return 
+ */
     public Dealer getDealerjuego() {
         return dealerjuego;
     }
-
+/**
+ * Recupera el dinero que el jugador apostó.
+ * @return 
+ */
     public int getMonto() {
         return monto;
     }
-
+/**
+ *Recupera el valor de la apuesta
+ * @return 
+ */
     public int getValorApuesta() {
         return valorApuesta;
     }
+    /**
+     * Recupera el servidor.
+     * @return 
+     */
 
     public ServidorInterface getServidor() {
         return servidor;
@@ -77,15 +90,24 @@ public class controladorJuego {
     public void setDealerjuego(Dealer dealerjuego) {
         this.dealerjuego = dealerjuego;
     }
-
+/**
+ * modifica el monto de apuesta
+ * @param monto 
+ */
     public void setMonto(int monto) {
         this.monto = monto;
     }
-
+/**
+ * Modifica el valor de la apuesta.
+ * @param valorApuesta 
+ */
     public void setValorApuesta(int valorApuesta) {
         this.valorApuesta = valorApuesta;
     }
-
+/**
+ * Modifica al servidor
+ * @param servidor 
+ */
     public void setServidor(ServidorInterface servidor) {
         this.servidor = servidor;
     }
@@ -153,6 +175,10 @@ public class controladorJuego {
     {
         contApuestas.allin();
     }
+    /**
+     * Recupera la información del jugador.
+     * @return 
+     */
     public Jugador getJugador()
     {
         return conexion.getUsuario();
