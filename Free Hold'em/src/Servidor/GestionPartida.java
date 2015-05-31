@@ -138,5 +138,12 @@ public void ubicarJugadoresEnMesa(ArrayList<Jugador> jugadores){
     //Se ubica dependiendo el orden
 }
 
+public void guardarJugadores(ArrayList<Jugador> jugadores){
+    this.jugadores=jugadores;
+}
+
+
+
+
 
 }

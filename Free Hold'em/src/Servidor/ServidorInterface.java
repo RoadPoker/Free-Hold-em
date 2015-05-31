@@ -10,7 +10,7 @@ public interface ServidorInterface extends Remote{
 	
 	boolean agregarJugador(String usuario,String pass) throws RemoteException;
         Jugador Acceder(String usuario,String pass)throws RemoteException;
-        ArrayList<Jugador> cargarJugadores(String usuario,String pass)throws RemoteException;
+        ArrayList<Jugador> cargarJugadores(String localizacion)throws RemoteException;
         boolean determinarInicioDePartida()throws RemoteException;
         void enviarJugada(long cantidad, String tipoApuesta) throws RemoteException;;
         boolean iniciarPartida(Jugador jugador) throws RemoteException;

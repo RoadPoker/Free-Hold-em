@@ -6,11 +6,13 @@
 
 package Servidor;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Diego
  */
-public class Jugador {
+public class Jugador implements Serializable{
     String nombre,password;
     int dinero;
     Mano mano;
