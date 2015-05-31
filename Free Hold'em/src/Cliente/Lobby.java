@@ -204,7 +204,7 @@ public class Lobby extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            if(cliente.RegistroJugador(jTextField1.getText(), jTextField2.getText())){
+            if(controlJuego.getConexion().RegistroJugador(jTextField1.getText(), jTextField2.getText())){
                 JOptionPane.showMessageDialog(null, "Registrado", "Registrado", JOptionPane.INFORMATION_MESSAGE);
               
                
@@ -219,7 +219,7 @@ public class Lobby extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            if(cliente.AccesoJugador(jTextField1.getText(), jTextField2.getText())){
+            if(controlJuego.getConexion().AccesoJugador(jTextField1.getText(), jTextField2.getText())){
                 JOptionPane.showMessageDialog(null, "Acceso", "Acceso", JOptionPane.INFORMATION_MESSAGE);
                 jFrame1.setSize(600, 600);
                 jFrame1.setVisible(true); 
@@ -235,10 +235,10 @@ public class Lobby extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
             
-            if(cliente.EnviarListo())
+            if(controlJuego.getConexion().EnviarListo())
             {
                 jButton4.setEnabled(false);
-                juego= new VistaMesa();
+                juego= new VistaMesa(controlJuego);
                 juego.setVisible(true);
             }
             else
@@ -254,6 +254,8 @@ public class Lobby extends javax.swing.JFrame {
             URL="rmi://"+jTextField3.getText()+"/Servidor";
             servidor=(ServidorInterface)Naming.lookup(URL); 
             cliente= new ClienteImp( servidor);
+            controlJuego= new controladorJuego();
+            controlJuego.setConexion(cliente);
         } catch (NotBoundException ex) {
             Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {
@@ -310,7 +312,11 @@ public class Lobby extends javax.swing.JFrame {
      */
     public void incio()
     {
-        controlJuego= new controladorJuego();
+        try {
+            controlJuego= new controladorJuego();
+        } catch (RemoteException ex) {
+            Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
+        }
         modJuego=controlJuego.getMesaDealer();
         
     }

@@ -225,5 +225,8 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface {
         gestion.determinarGanador();
     }
 
-
+    public boolean verificarInicioPartida() throws RemoteException
+    {
+        return enUso;
+    }
 }

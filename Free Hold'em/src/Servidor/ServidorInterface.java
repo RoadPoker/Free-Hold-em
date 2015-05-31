@@ -19,6 +19,6 @@ public interface ServidorInterface extends Remote{
         int pedirUbicacionEnMesa(Jugador jugador)throws RemoteException;
         void salirJugador(Jugador jugador) throws RemoteException;
         void salvarJugadores(ArrayList<Jugador> jugadores) throws RemoteException;
-        
+        public boolean verificarInicioPartida() throws RemoteException;
 }       
 

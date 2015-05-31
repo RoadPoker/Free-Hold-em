@@ -54,7 +54,13 @@ public class Jugador implements Serializable{
         this.mano = mano;
     }
 
-    
-    
+    public String carta1 ()
+    {
+        return mano.tipoCarta1();
+    }
+    public String carta2 ()
+    {
+        return mano.tipoCarta2();
+    }
     
 }

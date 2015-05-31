@@ -1,5 +1,7 @@
 package Cliente;
 
+import Servidor.Jugador;
+import Servidor.Mano;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -15,11 +17,56 @@ import javax.swing.JTextArea;
 public class ClienteImp extends UnicastRemoteObject implements ClienteInterface, Runnable {
 	
 	private static final long serialVersionUID = 1L;
-	String nombre,pass;
-	ServidorInterface servidor;
-        JTextArea jTextArea1;
-        Servidor.Jugador usuario;
+	private String nombre,pass;
+	private ServidorInterface servidor;
+        private JTextArea jTextArea1;
+        private Servidor.Jugador usuario;
+        private int idJug;
 
+        public static long getSerialVersionUID() {
+        return serialVersionUID;
+        }
+
+    public int getIdJug() {
+        return idJug;
+    }
+
+        public String getNombre() {
+        return nombre;
+        }
+
+        public ServidorInterface getServidor() {
+        return servidor;
+        }
+
+        public JTextArea getjTextArea1() {
+        return jTextArea1;
+        }
+
+        public Jugador getUsuario() {
+        return usuario;
+        }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public void setServidor(ServidorInterface servidor) {
+        this.servidor = servidor;
+    }
+
+    public void setjTextArea1(JTextArea jTextArea1) {
+        this.jTextArea1 = jTextArea1;
+    }
+
+    public void setUsuario(Jugador usuario) {
+        this.usuario = usuario;
+    }
+        
 	protected ClienteImp(ServidorInterface servido) throws RemoteException {
 		super();
 		
@@ -105,7 +152,15 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
             try {
                 if(servidor.iniciarPartida(usuario))
                 {
+                    idJug=servidor.pedirUbicacionEnMesa(usuario);
                     System.out.println("Mi ubicación"+servidor.pedirUbicacionEnMesa(usuario));
+                    while(!servidor.verificarInicioPartida())
+                    {
+                        
+                    }
+                    Mano manoJuego=servidor.pedirCartasIniciales(usuario);
+                    usuario.setMano(manoJuego);
+                    System.out.println("primera carta"+usuario.getMano().getCartas().get(0).toString());
                     return true;
                 }
                 else

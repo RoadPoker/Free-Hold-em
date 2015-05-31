@@ -1,11 +1,13 @@
 package Servidor;
 
+import java.io.Serializable;
+
 /**
  *  Esta clase representa una carta la cual tiene atributos como su figura, su color, su numero y su visibilidad.
  *  Con los atributos de todas las cartas segun las reglas del juego se puede definir cual es el ganador
  * @author Road Poker
  */
-public class Carta {
+public class Carta implements Serializable {
     
     private String color;
     private String figura;
@@ -49,6 +51,11 @@ public class Carta {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    @Override
+    public String toString() {
+        return "Carta{" + "color=" + color + ", figura=" + figura + ", numero=" + numero + ", visible=" + visible + '}';
     }
     
     

@@ -5,7 +5,10 @@
  */
 package Cliente;
 
+import Servidor.Jugador;
 import Servidor.Mesa;
+import Servidor.ServidorInterface;
+import java.rmi.RemoteException;
 
 /**
  *Clase controladora del juego, representa el controlador principal encargado de conectar,
@@ -18,12 +21,15 @@ public class controladorJuego {
     private Dealer dealerjuego;
     private int monto;
     private int valorApuesta;
+    private ServidorInterface servidor;
     
 /**
  * constructor por defecto.
  * 
  */
-    public controladorJuego() {
+    public controladorJuego() throws RemoteException {
+        conexion= new ClienteImp(servidor);
+        contApuestas= new ControladorApuesta();
     }
 /**
  * Constructor por copia, controladores de conexión y apuestas.
@@ -35,6 +41,23 @@ public class controladorJuego {
         this.conexion = conexion;
         this.contApuestas = contApuestas;
     }
+
+    public Dealer getDealerjuego() {
+        return dealerjuego;
+    }
+
+    public int getMonto() {
+        return monto;
+    }
+
+    public int getValorApuesta() {
+        return valorApuesta;
+    }
+
+    public ServidorInterface getServidor() {
+        return servidor;
+    }
+    
 /**
  * Retorna el controlador de conexión.
  * @return 
@@ -50,6 +73,23 @@ public class controladorJuego {
     public ControladorApuesta getContApuestas() {
         return contApuestas;
     }
+
+    public void setDealerjuego(Dealer dealerjuego) {
+        this.dealerjuego = dealerjuego;
+    }
+
+    public void setMonto(int monto) {
+        this.monto = monto;
+    }
+
+    public void setValorApuesta(int valorApuesta) {
+        this.valorApuesta = valorApuesta;
+    }
+
+    public void setServidor(ServidorInterface servidor) {
+        this.servidor = servidor;
+    }
+    
 /**
  * modifica el controlador de conexión.
  * 
@@ -112,5 +152,9 @@ public class controladorJuego {
     public void apuestaTodo()
     {
         contApuestas.allin();
+    }
+    public Jugador getJugador()
+    {
+        return conexion.getUsuario();
     }
 }
