@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Servidor;
 
 import java.io.Serializable;
 
+
 /**
- *
- * @author Diego
+ *  Esta clase representaa un jugador en el cual estaran el nombre, su clave ademas 
+ * del dinero que tiene disponible para apostar y la mano de cartas que le corresponde
+ * al momento de iniciar una partida
  */
 public class Jugador implements Serializable{
     String nombre,password;

@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Servidor;
 
 import java.util.ArrayList;
 
+
 /**
- *
- * @author Diego
+ *  Esta clase representa una mano para un jugador la cual consiste de dos cartas
  */
 public class Mano {
     ArrayList<Carta> cartas;
