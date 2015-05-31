@@ -260,7 +260,12 @@ public void guardarJugadores(ArrayList<Jugador> jugadores){
     public void setDealer(int dealer) {
         this.dealer = dealer;
     }
-
+/**
+    * Este metodo se encarga de generar las cartas comunales usando el metodo de
+    * cartaAleatorea y las guarda en la lista de cartas comunales de la clase
+    * 
+    *  @param  jugador  jugador a notificar
+    */
     public void crearCartasComunales()
     {
         for(int i=0; i<5;i++)

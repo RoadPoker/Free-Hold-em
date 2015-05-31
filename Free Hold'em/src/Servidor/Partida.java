@@ -229,16 +229,36 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface {
         gestion.determinarGanador();
     }
 
+    /**
+    * Este metodo se encarga de regresar el estado de la partida de tal modo que 
+    * un jugador no pueda ingresar a esta si esta una partida en curso
+    * 
+    *@return      si una aprtida esta en curso o no
+    * 
+    */
     public boolean verificarInicioPartida() throws RemoteException
     {
         return enUso;
     }
+ /**
+    * Este metodo se encarga de regresar la lista de jugadores que estan listos
+    * para iniciar la partida
+    * 
+    *@return      lista de jugadores listo para iniciar partida
+    * 
+    */
     public ArrayList<Jugador> PedirJugadoresListos() throws RemoteException
     {
         return jugadoresListos;
     }
 
-    @Override
+   /**
+    * Este metodo se encarga de regresar las cinco cartas comunales que se generaron previamente
+    * para que el jugador las conozca
+    * 
+    *@return      lista de cartas comunales
+    * 
+    */
     public ArrayList<Carta> pedirCartasComunales() throws RemoteException {
         return gestion.getCartasComunales();
     }

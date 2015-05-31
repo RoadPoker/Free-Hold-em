@@ -5,7 +5,11 @@ import Cliente.ClienteInterface;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-
+/**
+ *  Esta clase contiene los metodos que se deben implementar como requisito de comunicacion
+ * rmi desde el cliente hacia el servidor
+ * @author Road Poker
+ */
 public interface ServidorInterface extends Remote{
 	
 	boolean agregarJugador(String usuario,String pass) throws RemoteException;

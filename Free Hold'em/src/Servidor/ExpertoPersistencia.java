@@ -74,7 +74,7 @@ public class ExpertoPersistencia implements Persistencia{
             out.writeObject(jugadores);
             out.close();
         } catch (IOException ex) {
-           // Logger.getLogger(testServidor.class.getName()).log(Level.SEVERE, null, ex);
+         
             return false;
         }
         return true;

@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Servidor;
 
 /**
- *
- * @author Diego
+ *  Esta clase representa el pot el cual esta dentro de la mesa y representa la 
+ * cantidad de dinero apostado por todos los jugadores
+ * @author Road Poker
  */
 public class Pot {
     long monto;
