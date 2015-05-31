@@ -132,7 +132,7 @@ public Carta cartaAleatoria(){
     }
     x = rand.nextInt(13)+1;
     
-    return new Carta(color,figura,x);
+    return new Carta(color,figura,x,false);
 }
 public void ubicarJugadoresEnMesa(ArrayList<Jugador> jugadores){
     //Se ubica dependiendo el orden

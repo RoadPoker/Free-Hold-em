@@ -12,14 +12,20 @@ package Servidor;
  */
 public class Carta {
     
-    String color;
-    String figura;
-    int numero;
-
-    public Carta(String color, String figura, int numero) {
+    private String color;
+    private String figura;
+    private int numero;
+    private boolean visible;
+    public Carta(String color, String figura, int numero, boolean visible) {
         this.color = color;
         this.figura = figura;
         this.numero = numero;
+        this.visible=visible;
+        
+    }
+
+    public boolean isVisible() {
+        return visible;
     }
 
     public String getColor() {
@@ -44,6 +50,10 @@ public class Carta {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
     
     

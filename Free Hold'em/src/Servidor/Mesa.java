@@ -13,8 +13,8 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class Mesa {
-    long apuestaprevia;
-    long apuestaRonda;
+    int apuestaprevia;
+    int apuestaRonda;
     Pot pot;
     ArrayList <Carta> cartas;
     
@@ -41,7 +41,7 @@ public class Mesa {
       
   }
 
-    public Mesa(long apuestaprevia, long apuestaRonda) {
+    public Mesa(int apuestaprevia,int apuestaRonda) {
         this.apuestaprevia = apuestaprevia;
         this.apuestaRonda = apuestaRonda;
     }
@@ -54,11 +54,11 @@ public class Mesa {
         return apuestaRonda;
     }
 
-    public void setApuestaprevia(long apuestaprevia) {
+    public void setApuestaprevia(int apuestaprevia) {
         this.apuestaprevia = apuestaprevia;
     }
 
-    public void setApuestaRonda(long apuestaRonda) {
+    public void setApuestaRonda(int apuestaRonda) {
         this.apuestaRonda = apuestaRonda;
     }
   
