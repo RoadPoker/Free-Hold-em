@@ -12,10 +12,16 @@ package Cliente;
 public class ControladorApuesta {
 
     private Dealer dealerJug;
-    
+    /**
+     * constructor por defecto
+     * 
+     */
     public ControladorApuesta() {
     }
-
+/**
+ * preFlop, apuesta inicial al momento de iniciar un juego.
+ * @param monto 
+ */
     public void preFlop(int monto)
     {
         if(dealerJug.getJugadorDinero()-monto<0)
@@ -27,37 +33,56 @@ public class ControladorApuesta {
             dealerJug.setJugadorDinero(monto);
         }
     }
-    
+    /**
+     * Allin: implementa el tipo de apuesta, apostar todo.
+     */
     public void allin()
     {
         dealerJug.setJugadorDinero(dealerJug.getJugadorDinero());
     }
-    public void bet(int monto)
+    /**
+     * Bet: implementa el tipo de apuesta, apuesta con ajuste manual
+     * @param monto
+     * @return falso en caso de superar el dinero total del usuario.
+     */
+    public boolean bet(int monto)
     {
          if(dealerJug.getJugadorDinero()-monto<0)
         {
             System.err.println("No hay suficiente dinero para realizar la apuesta");
+            return false;
         }
         else
         {
             dealerJug.setJugadorDinero(monto);
+            return true;
         }
     }
-    public void call(int monto, int apuestaVigente)
+    /**
+     * call: implementa el tipo de apuesta, iguala la apuesta anterior.
+     * @param apuestaVigente
+     * @return 
+     */
+    public boolean call(int apuestaVigente)
     {
         if((dealerJug.getJugadorDinero()-apuestaVigente) <0)
         {
-            System.err.println("No se puede hacer esta apuesta");
+            return false;
         }
         else
         {
-            dealerJug.setJugadorDinero(monto);
+            dealerJug.setJugadorDinero(apuestaVigente);
+            return true;
         }
     }
-    
+    /**
+     * check: pasa el turno de apuesta sin dejar dinero en la mesa.
+     */
     public void check()
     {
-        
+        /**
+         * implementa el retirarse de la mesa.
+         */
     }
     public void fold()
     {

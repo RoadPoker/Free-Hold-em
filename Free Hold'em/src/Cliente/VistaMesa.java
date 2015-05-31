@@ -9,13 +9,14 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author felipe
  */
 public class VistaMesa extends javax.swing.JFrame {
-    private ControladorApuesta control;
+    private controladorJuego controljuego;
     /**
      * Creates new form Mesa
      */
@@ -43,12 +44,6 @@ public class VistaMesa extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Labjug1 = new javax.swing.JLabel();
-        labJug2 = new javax.swing.JLabel();
-        labJug3 = new javax.swing.JLabel();
-        labjug4 = new javax.swing.JLabel();
-        labJug5 = new javax.swing.JLabel();
-        labJug6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -58,6 +53,7 @@ public class VistaMesa extends javax.swing.JFrame {
         LabMesa = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         monto = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,6 +86,11 @@ public class VistaMesa extends javax.swing.JFrame {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 100, -1));
 
         jButton4.setText("Pasar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 620, 110, -1));
 
         jButton6.setText("Apuesta Todo");
@@ -109,30 +110,12 @@ public class VistaMesa extends javax.swing.JFrame {
 
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 580, -1, -1));
-
-        Labjug1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/ElementosExtra/avatar.png"))); // NOI18N
-        getContentPane().add(Labjug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 140, 150));
-
-        labJug2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/ElementosExtra/avatar.png"))); // NOI18N
-        getContentPane().add(labJug2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
-
-        labJug3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/ElementosExtra/avatar.png"))); // NOI18N
-        getContentPane().add(labJug3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, -1, -1));
-
-        labjug4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/ElementosExtra/avatar.png"))); // NOI18N
-        getContentPane().add(labjug4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 180, -1, -1));
-
-        labJug5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/ElementosExtra/avatar.png"))); // NOI18N
-        getContentPane().add(labJug5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, -1, -1));
-
-        labJug6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/ElementosExtra/avatar.png"))); // NOI18N
-        getContentPane().add(labJug6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, -1, -1));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 120, 150));
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 130, 150));
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 180, 130, 150));
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 120, 150));
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 140, 150));
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 390, 130, 150));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 120, 150));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 130, 150));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 220, 130, 150));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 120, 150));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 140, 150));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, 130, 150));
 
         LabMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/Imagenes/Mesa.jpg"))); // NOI18N
         LabMesa.setText("jLabel1");
@@ -148,15 +131,26 @@ public class VistaMesa extends javax.swing.JFrame {
         });
         getContentPane().add(monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 630, 120, -1));
 
+        jButton5.setText("Aceptar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 660, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Te retiraste del juego", "Retiro", JOptionPane.INFORMATION_MESSAGE);
+        controljuego.retirarse();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        monto.setEnabled(true);
+        jButton5.setEnabled(true);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -164,12 +158,39 @@ public class VistaMesa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        boolean verif=false;
+        verif=controljuego.realizarIgualar();
+        if(!verif)
+        {
+            JOptionPane.showMessageDialog(null, "No puedes realizar esta apuesta", "Error de apuesta", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void montoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_montoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_montoActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int cant;
+        cant=Integer.parseInt(monto.getText());
+        if(monto.getText().isEmpty()|| cant<=0)
+        {
+             JOptionPane.showMessageDialog(null, "Ingresa un valor diferente de 0 en tu apuesta", "Error de apuesta", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            if(!controljuego.apostar(cant))
+            {
+                JOptionPane.showMessageDialog(null, "Ingresa un valor diferente de 0 en tu apuesta", "Error de apuesta", JOptionPane.ERROR_MESSAGE);
+            }
+            monto.setEditable(false);
+            jButton5.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        controljuego.pasar();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,29 +228,26 @@ public class VistaMesa extends javax.swing.JFrame {
             }
         });
     }
+    /**
+     * Método para instancias los componentes principales de la mesa y su respectivo estado.
+     */
 public void func()
 {
-   control=new ControladorApuesta();
+   controljuego=new controladorJuego();
+   jButton5.setEnabled(false);
+   monto.setEditable(false);
+   
    
 }
 
-public JLabel getLabMesa()
-{
-    if(LabMesa==null)
-    {
-        LabMesa=new JLabel();
-        LabMesa.setBounds(5,5, 500, 300);
-    }
-    return LabMesa;
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabMesa;
-    private javax.swing.JLabel Labjug1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -243,11 +261,6 @@ public JLabel getLabMesa()
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JLabel labJug2;
-    private javax.swing.JLabel labJug3;
-    private javax.swing.JLabel labJug5;
-    private javax.swing.JLabel labJug6;
-    private javax.swing.JLabel labjug4;
     private javax.swing.JTextField monto;
     // End of variables declaration//GEN-END:variables
 }

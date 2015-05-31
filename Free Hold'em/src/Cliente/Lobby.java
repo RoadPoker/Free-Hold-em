@@ -296,6 +296,9 @@ public class Lobby extends javax.swing.JFrame {
             }
         });
     }
+    /**
+     * método diseñado para instanciar al inicio los objetos controladores.
+     */
     public void incio()
     {
         controlJuego= new controladorJuego();

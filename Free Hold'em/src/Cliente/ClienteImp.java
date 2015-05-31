@@ -48,7 +48,14 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
 		
 		return nombre;
 	}
-
+/**
+ * RegistroJugador: registra el jugador en el servidor, devuelve error en caso de
+ * existir otro jugador con el mismo nombre de usuario
+ * @param nombre, nombre del usuario
+ * @param pass, contraseña
+ * @return retorna falso en caso de no generar el usuario.
+ * @throws RemoteException 
+ */
     public boolean RegistroJugador(String nombre,String pass) throws RemoteException {
             this.nombre=nombre;
             this.pass=pass;
@@ -61,18 +68,38 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
 					}
         return false;
     }
-
+/**
+ * getPass: recupera contraseña del usuario
+ * @return
+ * @throws RemoteException 
+ */
     public String getPass() throws RemoteException {
        return pass;
     }
-    
+    /**
+     * AccesoJugador: permite al usuario acceder al sistema con un usuario
+     * registrado.
+     * @param nombre
+     * @param pass
+     * @return en caso de ser una conexión fallida devuelve false.
+     * @throws RemoteException 
+     */
     public boolean AccesoJugador(String nombre,String pass) throws RemoteException {
         this.nombre=nombre;
         this.pass=pass;
         usuario=servidor.Acceder(nombre, pass);
-        return true;
+        if(usuario==null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
-
+/**
+ * EnviarListo: confirma el usuario para ingresar a su partida o iniciar una nueva.
+ */
     public void EnviarListo() {
             
             try {
