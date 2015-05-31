@@ -177,5 +177,10 @@ public class ClienteImp extends UnicastRemoteObject implements ClienteInterface,
     public void setArea(JTextArea jTextArea1) throws RemoteException {
         this.jTextArea1=jTextArea1;
     }
+    public ArrayList<Jugador> pedirJugadoresListos() throws RemoteException
+    {
+        return servidor.PedirJugadoresListos();
+    }
+
     
 }

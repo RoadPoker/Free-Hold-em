@@ -15,7 +15,7 @@ public class GestionPartida {
     ArrayList<Jugador> jugadores= new ArrayList<>();
     ArrayList<Jugador> jugadoresListos= new ArrayList<>();
     int dealer=0;
-    
+    private boolean cartasRepartidas=false;
     
     /**
     * Este metodo se encarga de verificar que un jugador este accediendo con el
@@ -120,7 +120,7 @@ public void notificarSalida(Jugador jugador){
     *  @return      Un objeto de tipo mano que tiene las cartas pedidas
     */
 public Mano pedirCartasIniciales(Jugador jugador){
-    for (Jugador jugador1 : jugadores) {
+    for (Jugador jugador1 : jugadoresListos) {
         if (jugador1.getNombre().equalsIgnoreCase(jugador.getNombre())){
             return jugador1.getMano();
         }
@@ -155,7 +155,7 @@ public int pedirUbicacionEnMesa(Jugador jugador){
     */
 public void repartirCartas(){
     
-    for (Jugador jugador : jugadores) {
+    for (Jugador jugador : jugadoresListos) {
         Carta cartaUno=cartaAleatoria();
         Carta cartaDos=cartaAleatoria();
         ArrayList<Carta> mano=new ArrayList<>();

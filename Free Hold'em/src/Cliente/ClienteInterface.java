@@ -1,7 +1,9 @@
 package Cliente;
 
+import Servidor.Jugador;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 public interface ClienteInterface extends Remote{
@@ -12,4 +14,5 @@ public interface ClienteInterface extends Remote{
         public boolean AccesoJugador(String nombre,String pass) throws RemoteException;
         public boolean EnviarListo() throws RemoteException;
         public void setArea(JTextArea jTextArea1) throws RemoteException;
+        public ArrayList <Jugador> pedirJugadoresListos() throws RemoteException;
 }

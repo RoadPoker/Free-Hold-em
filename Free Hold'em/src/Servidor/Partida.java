@@ -137,6 +137,10 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface {
         if(tiempo<=0)
         {
             enUso=true;
+            for(int i=0;i<jugadoresListos.size();i++)
+            {
+                jugadoresListos.get(i).setIdJugador(i+1);
+            }
             gestion.repartirCartas();
         }
         return true;
@@ -228,5 +232,9 @@ public class Partida extends UnicastRemoteObject implements ServidorInterface {
     public boolean verificarInicioPartida() throws RemoteException
     {
         return enUso;
+    }
+    public ArrayList<Jugador> PedirJugadoresListos() throws RemoteException
+    {
+        return jugadoresListos;
     }
 }

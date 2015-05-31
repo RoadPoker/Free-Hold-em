@@ -9,9 +9,10 @@ import java.io.Serializable;
  * al momento de iniciar una partida
  */
 public class Jugador implements Serializable{
-    String nombre,password;
-    int dinero;
-    Mano mano;
+    private String nombre,password;
+    private int dinero;
+    private Mano mano;
+    private int idJugador;
 
     public Jugador(String nombre, String pass) {
         this.nombre = nombre;
@@ -19,8 +20,13 @@ public class Jugador implements Serializable{
         dinero=500;
     }
 
+    public int getIdJugador() {
+        return idJugador;
+    }
 
-
+    public void setIdJugador(int idJugador) {
+        this.idJugador = idJugador;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
