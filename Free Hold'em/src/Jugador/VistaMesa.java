@@ -743,7 +743,7 @@ public VistaMesa(controladorJuego cont) {
 
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 470, -1));
 
-        LabMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Jugador/Imagenes/Mesa.jpg"))); // NOI18N
+        LabMesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Cliente/Imagenes/Mesa.jpg"))); // NOI18N
         LabMesa.setText("jLabel1");
         getContentPane().add(LabMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 10, 1297, 536));
 
